@@ -1,0 +1,71 @@
+🧠 Autoconocimiento
+
+Tipo P
+
+¿Te consideras una persona más reflexiva que impulsiva?
+P1S
+P1N
+
+¿Sueles disfrutar de pasar tiempo a solas?
+P2S
+P2N
+
+¿Te cuesta seguir rutinas estrictas durante largos periodos de tiempo?
+P3S
+P3N
+
+¿Te adaptas con facilidad a los cambios inesperados?
+P4S
+P4N
+
+¿Tomas decisiones principalmente basándote en la lógica más que en las emociones?
+P5S
+P5N
+
+💬 Comunicación y relaciones
+
+Tipo C
+
+¿Te resulta fácil expresar tus ideas frente a otras personas?
+C1S
+C1N
+
+¿Prefieres escuchar antes que hablar en una conversación grupal?
+C2S
+C2N
+
+¿Disfrutas colaborando en equipo más que trabajando por tu cuenta?
+C3S
+C3N
+
+¿Te motiva ayudar a otras personas a resolver sus problemas?
+C4S
+C4N
+
+¿Evitas los conflictos, incluso si eso significa no expresar tu opinión?
+C5S
+C5N
+
+🎯 Motivación y estilo de vida
+
+Tipo M
+
+¿Te sientes más motivado(a) cuando tienes un objetivo claro por cumplir?
+M1S
+M1N
+
+¿Prefieres tareas que implican movimiento y acción a aquellas que requieren estar sentado mucho tiempo?
+M2S
+M2N
+
+¿Te interesa entender cómo funcionan las cosas a profundidad antes de usarlas?
+M3S
+M3N
+
+¿Te consideras una persona organizada con tus tiempos y responsabilidades?
+M4S
+M4N
+
+¿Sientes que necesitas sentir pasión por lo que haces para comprometerte de verdad?
+M5S
+M5N

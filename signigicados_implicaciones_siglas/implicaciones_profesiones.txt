@@ -1,0 +1,124 @@
+ A1. Tecnología y Transformación Digital
+S1. Ingeniería de Sistemas
+P1S ∧ P5S ∧ M3S ∧ M4S ⇒ S1
+(Persona lógica, estructurada, curiosa y organizada)
+
+S2. Desarrollo de Software
+P2S ∧ M1S ∧ M3S ∧ C3N ⇒ S2
+(Prefiere trabajar solo, le gustan los objetivos, ama entender sistemas y trabajar en solitario)
+
+S3. Ciencia de Datos e Inteligencia Artificial
+P1S ∧ P5S ∧ M1S ∧ S10S ⇒ S3
+(Reflexivo, racional, objetivo, ve oportunidades de mejora)
+
+S4. Ciberseguridad
+P5S ∧ M4S ∧ S4S ∧ S3S ⇒ S4
+(Lógico, estructurado, atento al entorno y noticias colectivas)
+
+S5. Diseño UX/UI
+C1S ∧ P3S ∧ M5S ∧ S8S ⇒ S5
+(Expresivo, rechaza rutinas, necesita pasión, sensible al bienestar y experiencia humana)
+
+S6. Marketing Digital
+C1S ∧ S10S ∧ M5S ∧ P4S ⇒ S6
+(Comunicador, detecta oportunidades, apasionado, adaptable)
+
+🔹 A2. Salud y Bienestar
+S7. Medicina
+M1S ∧ M4S ∧ C4S ∧ S9S ⇒ S7
+(Motivado, organizado, empático y con vocación de servicio)
+
+S8. Enfermería
+C4S ∧ C3S ∧ S2S ∧ S5S ⇒ S8
+(Empático, cooperativo, con deseo de ayudar y buen trato con la diversidad)
+
+S9. Psicología
+P1S ∧ C2S ∧ S1S ∧ M5S ⇒ S9
+(Reflexivo, escucha bien, le interesan los problemas sociales, trabaja con pasión)
+
+S10. Farmacia
+P5S ∧ M3S ∧ M4S ∧ S4S ⇒ S10
+(Lógico, detallista, organizado, interesado en impacto colectivo)
+
+S11. Fisioterapia
+M2S ∧ C4S ∧ S9S ∧ M5S ⇒ S11
+(Activo, empático, desea impactar positivamente, necesita propósito)
+
+S12. Nutrición y Dietética
+S8S ∧ C3S ∧ M5S ∧ M1S ⇒ S12
+(Preocupado por bienestar, cooperativo, trabaja con pasión y metas claras)
+
+🔹 A3. Ingeniería, Industria y Energía
+S13. Ingeniería Industrial
+P5S ∧ M4S ∧ S10S ∧ M1S ⇒ S13
+(Lógico, estructurado, innovador, motivado por resultados)
+
+S14. Ingeniería Ambiental
+S8S ∧ M5S ∧ P1S ∧ M3S ⇒ S14
+(Sensible al medio ambiente, apasionado, reflexivo, curioso técnico)
+
+S15. Ingeniería Sanitaria
+P4S ∧ S9S ∧ M4S ∧ S4S ⇒ S15
+(Adaptable, motivado por impacto social, organizado, conoce el entorno normativo)
+
+S16. Ingeniería Eléctrica
+P1S ∧ P5S ∧ M3S ∧ M2N ⇒ S16
+(Reflexivo, lógico, técnico, trabaja mejor en contexto estático)
+
+S17. Ingeniería Mecánica
+M3S ∧ M2S ∧ P4S ∧ S10S ⇒ S17
+(Curioso, activo, adaptable, ve oportunidades técnicas)
+
+🔹 A4. Negocios, Finanzas y Derecho
+S18. Contaduría Pública
+M4S ∧ P1S ∧ P5S ∧ S4S ⇒ S18
+(Estructurado, reflexivo, lógico, interesado en regulación y precisión)
+
+S19. Administración de Empresas
+C1S ∧ M1S ∧ S10S ∧ P4S ⇒ S19
+(Comunicador, con metas claras, innovador, adaptable al cambio)
+
+S20. Negocios Internacionales
+S7S ∧ S5S ∧ C1S ∧ P3N ⇒ S20
+(Le interesa influir, trabaja bien con diversidad, comunicador, no le molestan rutinas)
+
+S21. Derecho
+P5S ∧ C1S ∧ S4S ∧ S6S ⇒ S21
+(Lógico, comunicador, interesado en impacto político y social visible)
+
+S22. Economía
+P1S ∧ M1S ∧ S3S ∧ S4S ⇒ S22
+(Reflexivo, motivado, sigue noticias, interesado en dinámicas socioeconómicas)
+
+🔹 A5. Educación, Ciencias Sociales y Humanidades
+S23. Licenciatura en Educación
+C2S ∧ C4S ∧ M5S ∧ S9S ⇒ S23
+(Buen oyente, empático, apasionado, comprometido con la sociedad)
+
+S24. Trabajo Social
+S2S ∧ S1S ∧ C4S ∧ S8S ⇒ S24
+(Quiere ayudar, entiende problemas sociales, empático y comprometido)
+
+S25. Comunicación Social
+C1S ∧ P3S ∧ M5S ∧ S6S ⇒ S25
+(Expresivo, evita rutinas, apasionado, busca impacto visible en otros)
+
+S26. Sociología
+P1S ∧ S1S ∧ S3S ∧ M5S ⇒ S26
+(Reflexivo, analiza lo social, sigue tendencias, trabaja con sentido)
+
+S27. Filosofía
+P2S ∧ P1S ∧ M5S ∧ S1S ⇒ S27
+(Introvertido, reflexivo, apasionado y pensador social)
+
+S28. Antropología
+S5S ∧ S8S ∧ C2S ∧ M3S ⇒ S28
+(Interés en culturas, diversidad, escucha activa, quiere comprender el mundo)
+
+S29. Lingüística
+P1S ∧ M3S ∧ C1S ∧ S6S ⇒ S29
+(Reflexivo, curioso técnico, buen comunicador, busca impacto)
+
+S30. Historia
+P1S ∧ S1S ∧ M3S ∧ M5S ⇒ S30
+(Analítico, interesado en lo social, estudioso, con propósito profundo)

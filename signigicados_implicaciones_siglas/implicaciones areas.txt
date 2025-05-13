@@ -1,0 +1,94 @@
+A1. Tecnología y Transformación Digital
+P1S ∧ P5S ∧ M3S ∧ M4S ⇒ A1
+(Reflexivo, lógico, curioso por cómo funcionan las cosas y organizado)
+
+P2N ∧ C3N ∧ M1S ⇒ A1
+(No necesita estar con otros, prefiere trabajar solo, se motiva con metas claras)
+
+M2N ∧ M3S ∧ C1S ⇒ A1
+(Prefiere estar sentado, le gusta comprender sistemas, comunica bien sus ideas)
+
+P4S ∧ P3S ∧ M4S ⇒ A1
+(Se adapta al cambio, evita rutinas rígidas, pero mantiene organización)
+
+S10S ∧ M3S ∧ P5S ⇒ A1
+(Identifica oportunidades de negocio, le interesa cómo funcionan las cosas, decide lógicamente)
+
+P1S ∧ P2S ∧ M1S ∧ M3S ⇒ A1
+(Introvertido, motivado por objetivos, con pensamiento estructurado)
+
+🔹 A2. Salud y Bienestar
+C4S ∧ C5S ∧ S2S ⇒ A2
+(Le gusta ayudar, evita el conflicto, se motiva por mejorar vidas)
+
+P2S ∧ S1S ∧ S4S ⇒ A2
+(Disfruta el tiempo a solas, interesado en problemas sociales y decisiones políticas)
+
+C2S ∧ C4S ∧ M5S ⇒ A2
+(Buen oyente, empático, necesita pasión por lo que hace)
+
+P3N ∧ M4S ∧ S9S ⇒ A2
+(Tolera rutinas, es organizado, quiere aportar a necesidades reales)
+
+C3S ∧ C4S ∧ S5S ⇒ A2
+(Disfruta el trabajo en equipo, empático, le interesa la diversidad social)
+
+M5S ∧ S2S ∧ S8S ⇒ A2
+(Necesita pasión, quiere ayudar y se preocupa por el bienestar social y ambiental)
+
+🔹 A3. Ingeniería, Industria y Energía
+P1S ∧ P5S ∧ M1S ∧ M4S ⇒ A3
+(Reflexivo, lógico, objetivo, estructurado y organizado)
+
+P3S ∧ M2S ∧ M3S ⇒ A3
+(No le molestan los cambios, prefiere actividades físicas, quiere entender procesos)
+
+P4S ∧ M1S ∧ M4S ∧ C1S ⇒ A3
+(Flexible al cambio, motivado, estructurado y buen comunicador técnico)
+
+S3S ∧ S4S ∧ S10S ⇒ A3
+(Le interesa lo colectivo, entiende el impacto social y ve oportunidades de innovación)
+
+C3N ∧ P2N ∧ M1S ∧ M4S ⇒ A3
+(Prefiere trabajar solo, motivado por objetivos, buen manejo del tiempo)
+
+P5S ∧ M3S ∧ S8S ⇒ A3
+(Razonamiento lógico, curiosidad técnica y orientación hacia sostenibilidad)
+
+🔹 A4. Negocios, Finanzas y Derecho
+C1S ∧ C2N ∧ P5S ⇒ A4
+(Buena expresión, le gusta hablar, toma decisiones racionales)
+
+M1S ∧ M4S ∧ S9S ⇒ A4
+(Orientado a metas, estructurado, le interesa responder a necesidades sociales)
+
+P1S ∧ C1S ∧ S4S ⇒ A4
+(Reflexivo, buen comunicador, interesado en el entorno normativo y político)
+
+S3S ∧ S7S ∧ S10S ⇒ A4
+(Sigue noticias, quiere influir colectivamente, detecta oportunidades de negocio)
+
+C2N ∧ C5N ∧ P4S ⇒ A4
+(Habla con firmeza, no evita conflictos, se adapta bien al cambio)
+
+M1S ∧ M5S ∧ S9S ⇒ A4
+(Necesita pasión, estructura, e impacto social claro en su labor)
+
+🔹 A5. Educación, Ciencias Sociales y Humanidades
+C2S ∧ C4S ∧ M5S ⇒ A5
+(Buen oyente, empático, necesita conexión emocional con su propósito)
+
+P2S ∧ P1S ∧ S1S ⇒ A5
+(Introvertido, reflexivo, interesado en lo social)
+
+C1S ∧ C5S ∧ S8S ⇒ A5
+(Buen comunicador, evita conflictos, interesado en el bienestar social y ambiental)
+
+S6S ∧ S9S ∧ M5S ⇒ A5
+(Busca impacto visible, sentido social y propósito emocional)
+
+P3S ∧ P5N ∧ C2S ⇒ A5
+(Rechaza rutinas rígidas, toma decisiones emocionales, escucha a los demás)
+
+S1S ∧ S5S ∧ S8S ⇒ A5
+(Le interesa entender lo social, respeta la diversidad, se preocupa por el planeta)

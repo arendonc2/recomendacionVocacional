@@ -1,0 +1,42 @@
+🌍 Necesidades sociales y del mercado
+Tipo S
+
+¿Te interesa comprender cómo funcionan los problemas sociales o económicos de tu comunidad?
+S1S
+S1N
+
+¿Te motiva encontrar soluciones que puedan mejorar la calidad de vida de otras personas?
+S2S
+S2N
+
+¿Sueles estar pendiente de noticias o tendencias que afectan a muchas personas al mismo tiempo?
+S3S
+S3N
+
+¿Te interesa saber cómo las decisiones de gobierno o empresas impactan en el día a día de la sociedad?
+S4S
+S4N
+
+¿Te sientes cómodo trabajando con personas de diferentes contextos sociales o culturales?
+S5S
+S5N
+
+¿Prefieres actividades que generen impacto visible en otras personas más que resultados individuales?
+S6S
+S6N
+
+¿Te interesaría trabajar en contextos donde puedas influir en decisiones colectivas?
+S7S
+S7N
+
+¿Te sientes atraído por temas relacionados con sostenibilidad, medio ambiente o bienestar social?
+S8S
+S8N
+
+¿Consideras importante que tu trabajo responda a una necesidad real de la sociedad?
+S9S
+S9N
+
+¿Te gustaría identificar oportunidades de negocio o innovación a partir de necesidades insatisfechas?
+S10S
+S10N
