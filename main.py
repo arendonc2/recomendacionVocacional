@@ -1,4 +1,4 @@
-from knowledgebase import *
+from knowledgebase import KnowledgeBase
 
 class DiagnosisAgent:
     def __init__(self):
