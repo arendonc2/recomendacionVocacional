@@ -2,12 +2,12 @@ from agent import DiagnosisAgent
 
 class DoInferencias:
     def __init__(self):
-        pass
+        self.agent = DiagnosisAgent()
 
     def extract_symbols(self, KB, alpha): # La función extract simbolos nos permite extraer los simbolos relevantes del conocimiento base y de alpha
         propotitions=[]
         propotitions.append(alpha)
-        for i in agent.kb.rules:
+        for i in self.agent.kb.rules:
             if "Executed" not in i:
                 if type(i)==tuple and len(i[0])!=0:
                     print(i[0])
