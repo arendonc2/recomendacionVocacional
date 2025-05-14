@@ -58,9 +58,9 @@ class DoInferencias:
 
 
     def pl_true_kb(self, KB, model):
-        rules_symptoms = KB.rules + KB.symptoms
+        rules_answers = KB.rules + KB.answers
         #Evalúa si todo el conocimiento base es verdadero en un modelo dado.
-        for sentence in rules_symptoms:
+        for sentence in rules_answers:
             print("resultado de evaluación de kb en el modelo: ", self.pl_true(sentence, model))
             if not self.pl_true(sentence, model):
                 return False  # Si alguna oración es falsa, todo el KB es falso
