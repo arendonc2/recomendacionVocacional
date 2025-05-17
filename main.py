@@ -1,209 +1,219 @@
+import re
+
 class KnowledgeBase:
     def __init__(self):
-        self.rules=["P1S ∧ P5S ∧ M3S ∧ M4S ⇒ A1",
-                    "P2N ∧ C3N ∧ M1S ⇒ A1",
-                    "M2N ∧ M3S ∧ C1S ⇒ A1",
-                    "P4S ∧ P3S ∧ M4S ⇒ A1",
-                    "S10S ∧ M3S ∧ P5S ⇒ A1",
-                    "P1S ∧ P2S ∧ M1S ∧ M3S ⇒ A1",
-                    "C4S ∧ C5S ∧ S2S ⇒ A2",
-                    "P2S ∧ S1S ∧ S4S ⇒ A2",
-                    "C2S ∧ C4S ∧ M5S ⇒ A2",
-                    "P3N ∧ M4S ∧ S9S ⇒ A2",
-                    "C3S ∧ C4S ∧ S5S ⇒ A2",
-                    "M5S ∧ S2S ∧ S8S ⇒ A2",
-                    "P1S ∧ P5S ∧ M1S ∧ M4S ⇒ A3",
-                    "P3S ∧ M2S ∧ M3S ⇒ A3",
-                    "P4S ∧ M1S ∧ M4S ∧ C1S ⇒ A3",
-                    "S3S ∧ S4S ∧ S10S ⇒ A3",
-                    "C3N ∧ P2N ∧ M1S ∧ M4S ⇒ A3",
-                    "P5S ∧ M3S ∧ S8S ⇒ A3",
-                    "C1S ∧ C2N ∧ P5S ⇒ A4",
-                    "M1S ∧ M4S ∧ S9S ⇒ A4",
-                    "P1S ∧ C1S ∧ S4S ⇒ A4",
-                    "S3S ∧ S7S ∧ S10S ⇒ A4",
-                    "C2N ∧ C5N ∧ P4S ⇒ A4",
-                    "M1S ∧ M5S ∧ S9S ⇒ A4",
-                    "C2S ∧ C4S ∧ M5S ⇒ A5",
-                    "P2S ∧ P1S ∧ S1S ⇒ A5",
-                    "C1S ∧ C5S ∧ S8S ⇒ A5",
-                    "S6S ∧ S9S ∧ M5S ⇒ A5",
-                    "P3S ∧ P5N ∧ C2S ⇒ A5",
-                    "S1S ∧ S5S ∧ S8S ⇒ A5",
-                    "P1S ∧ P5S ∧ M3S ∧ M4S ⇒ S1",
-                    "P2S ∧ M1S ∧ M3S ∧ C3N ⇒ S2",
-                    "P1S ∧ P5S ∧ M1S ∧ S10S ⇒ S3",
-                    "P5S ∧ M4S ∧ S4S ∧ S3S ⇒ S4",
-                    "C1S ∧ P3S ∧ M5S ∧ S8S ⇒ S5",
-                    "C1S ∧ S10S ∧ M5S ∧ P4S ⇒ S6",
-                    "M1S ∧ M4S ∧ C4S ∧ S9S ⇒ S7",
-                    "C4S ∧ C3S ∧ S2S ∧ S5S ⇒ S8",
-                    "P1S ∧ C2S ∧ S1S ∧ M5S ⇒ S9",
-                    "P5S ∧ M3S ∧ M4S ∧ S4S ⇒ S10",
-                    "M2S ∧ C4S ∧ S9S ∧ M5S ⇒ S11",
-                    "S8S ∧ C3S ∧ M5S ∧ M1S ⇒ S12",
-                    "P5S ∧ M4S ∧ S10S ∧ M1S ⇒ S13",
-                    "S8S ∧ M5S ∧ P1S ∧ M3S ⇒ S14",
-                    "P4S ∧ S9S ∧ M4S ∧ S4S ⇒ S15",
-                    "P1S ∧ P5S ∧ M3S ∧ M2N ⇒ S16",
-                    "M3S ∧ M2S ∧ P4S ∧ S10S ⇒ S17",
-                    "M4S ∧ P1S ∧ P5S ∧ S4S ⇒ S18",
-                    "C1S ∧ M1S ∧ S10S ∧ P4S ⇒ S19",
-                    "S7S ∧ S5S ∧ C1S ∧ P3N ⇒ S20",
-                    "P5S ∧ C1S ∧ S4S ∧ S6S ⇒ S21",
-                    "P1S ∧ M1S ∧ S3S ∧ S4S ⇒ S22",
-                    "C2S ∧ C4S ∧ M5S ∧ S9S ⇒ S23",
-                    "S2S ∧ S1S ∧ C4S ∧ S8S ⇒ S24",
-                    "C1S ∧ P3S ∧ M5S ∧ S6S ⇒ S25",
-                    "P1S ∧ S1S ∧ S3S ∧ M5S ⇒ S26",
-                    "P2S ∧ P1S ∧ M5S ∧ S1S ⇒ S27",
-                    "S5S ∧ S8S ∧ C2S ∧ M3S ⇒ S28",
-                    "P1S ∧ M3S ∧ C1S ∧ S6S ⇒ S29",
-                    "P1S ∧ S1S ∧ M3S ∧ M5S ⇒ S30"
-                    ]
-        self.answers = []
+        # Mapeo de códigos de área a nombres legibles
+        self.area_names = {
+            'A1': 'Tecnología y Transformación Digital',
+            'A2': 'Salud y Bienestar',
+            'A3': 'Ingeniería, Industria y Energía',
+            'A4': 'Negocios, Finanzas y Derecho',
+            'A5': 'Educación, Ciencias Sociales y Humanidades'
+        }
+        # Reglas proposicionales para inferir áreas (A1–A5)
+        self.area_rules = [
+            "P1S ∧ P5S ∧ M3S ∧ M4S ⇒ A1", "P2N ∧ C3N ∧ M1S ⇒ A1", "M2N ∧ M3S ∧ C1S ⇒ A1",
+            "P4S ∧ P3S ∧ M4S ⇒ A1", "S10S ∧ M3S ∧ P5S ⇒ A1", "P1S ∧ P2S ∧ M1S ∧ M3S ⇒ A1",
+            "C4S ∧ C5S ∧ S2S ⇒ A2", "P2S ∧ S1S ∧ S4S ⇒ A2", "C2S ∧ C4S ∧ M5S ⇒ A2",
+            "P3N ∧ M4S ∧ S9S ⇒ A2", "C3S ∧ C4S ∧ S5S ⇒ A2", "M5S ∧ S2S ∧ S8S ⇒ A2",
+            "P1S ∧ P5S ∧ M1S ∧ M4S ⇒ A3", "P3S ∧ M2S ∧ M3S ⇒ A3", "P4S ∧ M1S ∧ M4S ∧ C1S ⇒ A3",
+            "S3S ∧ S4S ∧ S10S ⇒ A3", "C3N ∧ P2N ∧ M1S ∧ M4S ⇒ A3", "P5S ∧ M3S ∧ S8S ⇒ A3",
+            "C1S ∧ C2N ∧ P5S ⇒ A4", "M1S ∧ M4S ∧ S9S ⇒ A4", "P1S ∧ C1S ∧ S4S ⇒ A4",
+            "S3S ∧ S7S ∧ S10S ⇒ A4", "C2N ∧ C5N ∧ P4S ⇒ A4", "M1S ∧ M5S ∧ S9S ⇒ A4",
+            "C2S ∧ C4S ∧ M5S ⇒ A5", "P2S ∧ P1S ∧ S1S ⇒ A5", "C1S ∧ C5S ∧ S8S ⇒ A5",
+            "S6S ∧ S9S ∧ M5S ⇒ A5", "P3S ∧ P5N ∧ C2S ⇒ A5", "S1S ∧ S5S ∧ S8S ⇒ A5"
+        ]
+        # Opciones de carrera para cada área
+        self.career_options = {
+            'A1': ["Ingeniería de Sistemas","Desarrollo de Software","Ciencia de Datos e IA","Ciberseguridad","Diseño UX/UI","Marketing Digital"],
+            'A2': ["Medicina","Enfermería","Psicología","Farmacia","Fisioterapia","Nutrición y Dietética"],
+            'A3': ["Ingeniería Industrial","Ingeniería Ambiental","Ingeniería Sanitaria","Ingeniería Eléctrica","Ingeniería Mecánica"],
+            'A4': ["Contaduría Pública","Administración de Empresas","Negocios Internacionales","Derecho","Economía"],
+            'A5': ["Licenciatura en Educación","Trabajo Social","Comunicación Social","Sociología","Filosofía","Antropología","Lingüística","Historia"]
+        }
+        # Preguntas específicas por carrera para cada área
+        self.career_question_prompts = {
+            'A1': {
+                'Ingeniería de Sistemas':      '¿Te interesa diseñar y mantener arquitecturas de software y bases de datos? (s/n): ',
+                'Desarrollo de Software':      '¿Disfrutas escribir y depurar código para crear aplicaciones o sistemas? (s/n): ',
+                'Ciencia de Datos e IA':       '¿Te gusta analizar grandes volúmenes de datos y entrenar modelos predictivos? (s/n): ',
+                'Ciberseguridad':              '¿Te interesa proteger sistemas y redes de posibles ataques y vulnerabilidades? (s/n): ',
+                'Diseño UX/UI':                '¿Te motiva crear interfaces intuitivas y mejorar la experiencia de usuario? (s/n): ',
+                'Marketing Digital':           '¿Te gusta planificar campañas online y analizar métricas de rendimiento? (s/n): '
+            },
+            'A2': {
+                'Medicina':                    '¿Te interesa diagnosticar y tratar enfermedades, incluyendo en pacientes infantiles? (s/n): ',
+                'Enfermería':                  '¿Disfrutarías asistir en el cuidado directo de pacientes y colaborar en equipos de salud? (s/n): ',
+                'Psicología':                  '¿Te interesa entender y ayudar a las personas con sus procesos mentales y emocionales? (s/n): ',
+                'Farmacia':                    '¿Te atrae profundizar en cómo funcionan los medicamentos y su desarrollo? (s/n): ',
+                'Fisioterapia':                '¿Te motiva ayudar a personas a recuperar movilidad mediante técnicas físicas y ejercicios? (s/n): ',
+                'Nutrición y Dietética':       '¿Te apasiona diseñar planes alimenticios para mejorar la salud mediante la nutrición? (s/n): '
+            },
+            'A3': {
+                'Ingeniería Industrial':      '¿Te atrae optimizar procesos productivos y gestionar operaciones eficientes? (s/n): ',
+                'Ingeniería Ambiental':       '¿Te interesa diseñar soluciones para reducir el impacto ambiental y conservar recursos? (s/n): ',
+                'Ingeniería Sanitaria':       '¿Te gustaría trabajar en proyectos de agua potable y saneamiento básico? (s/n): ',
+                'Ingeniería Eléctrica':       '¿Te apasiona diseñar y mantener sistemas eléctricos y circuitos de alta tensión? (s/n): ',
+                'Ingeniería Mecánica':        '¿Disfrutas diseñar y analizar mecanismos y sistemas de movimiento? (s/n): '
+            },
+            'A4': {
+                'Contaduría Pública':         '¿Te interesa llevar registros financieros y realizar auditorías contables? (s/n): ',
+                'Administración de Empresas': '¿Te motiva coordinar equipos y gestionar recursos para alcanzar metas organizacionales? (s/n): ',
+                'Negocios Internacionales':   '¿Te atrae negociar y gestionar operaciones comerciales entre distintos países? (s/n): ',
+                'Derecho':                    '¿Te apasiona analizar leyes y representar clientes en asuntos legales? (s/n): ',
+                'Economía':                   '¿Te gusta estudiar mercados y políticas para entender la distribución de recursos? (s/n): '
+            },
+            'A5': {
+                'Licenciatura en Educación':  '¿Te interesa planificar y dictar clases para distintos niveles educativos? (s/n): ',
+                'Trabajo Social':             '¿Te gustaría intervenir en comunidades para promover el bienestar social? (s/n): ',
+                'Comunicación Social':        '¿Te apasiona producir contenidos y estrategias de comunicación masiva? (s/n): ',
+                'Sociología':                 '¿Te atrae investigar estructuras sociales y cambios culturales? (s/n): ',
+                'Filosofía':                  '¿Disfrutas reflexionar sobre teorías que explican la realidad y el conocimiento? (s/n): ',
+                'Antropología':               '¿Te interesa estudiar culturas y prácticas de diferentes comunidades? (s/n): ',
+                'Lingüística':                '¿Te apasiona analizar la estructura y evolución de los idiomas? (s/n): ',
+                'Historia':                   '¿Te gusta investigar y narrar eventos del pasado y su impacto en el presente? (s/n): '
+            }
+        }
+        # Inferencia proposicional y reglas extras
+        self.rules = self.area_rules[:]
+        self.symptoms = []
+        self.inference_rules = {
+            "modus_ponens": self.modus_ponens,
+            "de_morgan_law": self.de_morgan_law,
+            "and_elimination": self.and_elimination,
+            "biconditional_elimination": self.biconditional_elimination,
+            "contraposition": self.contraposition
+        }
 
-    def tell(self, answer):
-        self.answers.append(answer)
+    def evaluate_rules(self, rules, answers):
+        scores = {}
+        for rule_text in rules:
+            antecedent, consequent = rule_text.split('⇒')
+            consequent = consequent.strip()
+            symbols = [s.strip() for s in antecedent.split('∧')]
+            if all(answers.get(sym, False) for sym in symbols):
+                scores[consequent] = scores.get(consequent, 0) + 1
+        return scores
 
-    def ask(self):
-        diagnoses = set()
-        for answer in self.answers:
-            if answer in self.rules:
-                diagnoses.update(self.rules[answer].split("∨"))
-        return diagnoses if diagnoses else {"Sin diagnóstico"}
+    def infer_area(self, answers):
+        area_scores = self.evaluate_rules(self.area_rules, answers)
+        if not area_scores:
+            return None, {}
+        best_code = max(area_scores, key=area_scores.get)
+        return best_code, area_scores
 
+    def infer_career(self, career_answers):
+        scores = {c: int(ans) for c, ans in career_answers.items()}
+        best = max(scores, key=scores.get) if scores else None
+        return best, scores
 
-class DiagnosisAgent:
-    def __init__(self):
-        self.kb = KnowledgeBase()
+    # ---------------- Propositional Logic ----------------
+    def extract_symbols(self, alpha):
+        propositions = [alpha] + self.rules
+        symbols = set()
+        for sent in propositions:
+            for tok in re.split(r"[ ∧∨⇒⇔()]+", sent):
+                if tok and tok != '¬':
+                    symbols.add(tok)
+        return list(symbols)
 
-    def recive_answers(self, answers):
-        for answer in answers:
-            self.kb.tell(answer)
+    def tt_entails(self, alpha):
+        return self.tt_check_all(alpha, self.extract_symbols(alpha), {})
 
-    def recommendation(self):
-        return self.kb.ask()
+    def tt_check_all(self, alpha, symbols, model):
+        if not symbols:
+            if self.pl_true_kb(model):
+                return self.pl_true(alpha, model)
+            return True
+        p, rest = symbols[0], symbols[1:]
+        m_true, m_false = model.copy(), model.copy()
+        m_true[p], m_false[p] = True, False
+        return self.tt_check_all(alpha, rest, m_true) and self.tt_check_all(alpha, rest, m_false)
 
+    def pl_true_kb(self, model):
+        for s in self.rules + self.symptoms:
+            if not self.pl_true(s, model): return False
+        return True
 
-def extract_symbols(KB,alpha): # La función extract simbolos nos permite extraer los simbolos relevantes del conocimiento base y de alpha
-    propotitions=[]
-    propotitions.append(alpha)
-    for i in agent.kb.rules:
-        if "Executed" not in i:
-            if type(i)==tuple and len(i[0])!=0:
-                print(i[0])
-                propotitions.append(str(i[0][0]))
-            elif (type(i)!=tuple): propotitions.append(i)
-    symbols = set()
-    print(propotitions)
-    for sentence in propotitions:
-        # Divide y extrae las partes de la oración, aquí se hace de manera simplificada
-        for symbol in sentence.replace("(", "").replace(")", "").replace("⇔", "").replace("¬", "").split():
-            if symbol not in ["∨", "∧", "⇒"]:
-                symbols.add(symbol)
-    return(list(symbols))
+    def pl_true(self, sentence, model):
+        s = sentence.replace(' ', '')
+        if s.startswith('¬'): return not self.pl_true(s[1:], model)
+        for op, fn in [('⇔', lambda a,b: a==b), ('⇒', lambda a,b: (not a) or b), ('∨', lambda a,b: a or b), ('∧', lambda a,b: a and b)]:
+            if op in s:
+                l, r = s.split(op,1)
+                return fn(self.pl_true(l, model), self.pl_true(r, model))
+        return model.get(s, False)
 
+    # --------------- Inference Rules ---------------
+    def modus_ponens(self, a, b): return a and ((not a) or b)
+    def and_elimination(self, a, b): return a and b
+    def biconditional_elimination(self, a, b): return ((not a or b) and (not b or a))
+    def contraposition(self, a, b): return b or (not a)
+    def de_morgan_law(self, a, b): return (not a) or (not b)
 
-def tt_entails(KB, alpha):
-    """Verifica si KB lógicamente implica alpha usando la enumeración de la tabla de verdad"""
-    symbols = extract_symbols(KB, alpha)  # Extraer los símbolos del KB y alpha
-    print(symbols)
-    return tt_check_all(KB, alpha, symbols, {})
+    def apply_rules(self, facts):
+        new_facts = set(facts)
+        for nm, fn in self.inference_rules.items():
+            for x in facts:
+                for y in facts:
+                    if x!=y and fn(x,y): new_facts.add(f"{nm}({x},{y})")
+        return new_facts
 
-def tt_check_all(KB, alpha, symbols, model):
-    """Función recursiva que evalúa si el modelo satisface el KB y alpha."""
-    if not symbols: #en caso de que ya se halla asignado valor True o False a todos los simbolos
-        print("Probar con", model)
-        if pl_true_kb(KB, model): #ver si el modelo satisface el KB
-            print("Es el modelo de prueba que cumple con KB: ", model)
-            print("Esto es alpha: ", alpha)
-            print("Esto es el resultado de alpha en el modelo: ", pl_true(alpha, model))
-            print("-------------------------------------------------------------------")
-            return pl_true(alpha, model)
-        else:
-            return True  # Si KB es falso en el modelo, no importa alpha
-    else:
-        P = symbols[0]  # El primer simbolo
-        #print(P)
-        rest = symbols[1:]  # Los simbolos restantes
-        # Probar con P verdadero
-        model_true = model.copy()
-        model_true[P] = True
-        # Probar con P falso
-        model_false = model.copy()
-        model_false[P] = False
-        #print("Probar con P False", model_false)
-        # Evaluar recursivamente ambos casos
-        return tt_check_all(KB, alpha, rest, model_true) and tt_check_all(KB, alpha, rest, model_false)
+# ---- Interacción con usuario ----
+def ask_yes_no(prompt):
+    while True:
+        r = input(prompt).strip().lower()
+        if r in ('s','n'): return r=='s'
+        print("Respuesta no válida. Ingresa 's' o 'n'.")
 
+def ask_questions(mapping):
+    # Asegurar que mapping sea dict, no set
+    if not hasattr(mapping, 'items'):
+        raise TypeError("ask_questions espera un diccionario de prompts")
+    return {k: ask_yes_no(p) for k,p in mapping.items()}
 
+if __name__ == '__main__':
+    kb = KnowledgeBase()
+    # Fase 1: preguntas generales
+    general_prompts = {
+        'S1S': '¿Te interesa comprender cómo funcionan los problemas sociales o económicos de tu comunidad? (s/n): ',
+        'S2S': '¿Te motiva encontrar soluciones que puedan mejorar la calidad de vida de otras personas? (s/n): ',
+        'S3S': '¿Sueles estar pendiente de noticias o tendencias que afectan a muchas personas al mismo tiempo? (s/n): ',
+        'S4S': '¿Te interesa saber cómo las decisiones de gobierno o empresas impactan en el día a día de la sociedad? (s/n): ',
+        'S5S': '¿Te sientes cómodo trabajando con personas de diferentes contextos sociales o culturales? (s/n): ',
+        'S6S': '¿Prefieres actividades que generen impacto visible en otras personas más que resultados individuales? (s/n): ',
+        'S7S': '¿Te interesaría trabajar en contextos donde puedas influir en decisiones colectivas? (s/n): ',
+        'S8S': '¿Te sientes atraído por temas relacionados con sostenibilidad, medio ambiente o bienestar social? (s/n): ',
+        'S9S': '¿Consideras importante que tu trabajo responda a una necesidad real de la sociedad? (s/n): ',
+        'S10S': '¿Te gustaría identificar oportunidades de negocio o innovación a partir de necesidades insatisfechas? (s/n): ',
+        'P1S': '¿Te consideras una persona más reflexiva que impulsiva? (s/n): ',
+        'P2S': '¿Sueles disfrutar de pasar tiempo a solas? (s/n): ',
+        'P3S': '¿Te cuesta seguir rutinas estrictas durante largos periodos de tiempo? (s/n): ',
+        'P4S': '¿Te adaptas con facilidad a los cambios inesperados? (s/n): ',
+        'P5S': '¿Tomas decisiones principalmente basándote en la lógica más que en las emociones? (s/n): ',
+        'C1S': '¿Te resulta fácil expresar tus ideas frente a otras personas? (s/n): ',
+        'C2S': '¿Prefieres escuchar antes que hablar en una conversación grupal? (s/n): ',
+        'C3S': '¿Disfrutas colaborando en equipo más que trabajando por tu cuenta? (s/n): ',
+        'C4S': '¿Te motiva ayudar a otras personas a resolver sus problemas? (s/n): ',
+        'C5S': '¿Evitas los conflictos, incluso si eso significa no expresar tu opinión? (s/n): ',
+        'M1S': '¿Te sientes más motivado(a) cuando tienes un objetivo claro por cumplir? (s/n): ',
+        'M2S': '¿Prefieres tareas que implican movimiento y acción a aquellas que requieren estar sentado mucho tiempo? (s/n): ',
+        'M3S': '¿Te interesa entender cómo funcionan las cosas a profundidad antes de usarlas? (s/n): ',
+        'M4S': '¿Te consideras una persona organizada con tus tiempos y responsabilidades? (s/n): ',
+        'M5S': '¿Sientes que necesitas sentir pasión por lo que haces para comprometerte de verdad? (s/n): '
+    }
+    print("=== Fase 1: Detección de área ===")
+    answers = ask_questions(general_prompts)
+    area_code, scores_area = kb.infer_area(answers)
+    if not area_code:
+        print("No se pudo determinar un área.")
+        exit(1)
+    area_name = kb.area_names[area_code]
+    print(f"Área recomendada: {area_name}")
 
-def pl_true_kb(KB, model):
-    rules_symptoms = KB.rules + KB.symptoms
-    #Evalúa si todo el conocimiento base es verdadero en un modelo dado.
-    for sentence in rules_symptoms:
-        print("resultado de evaluación de kb en el modelo: ", pl_true(sentence, model))
-        if not pl_true(sentence, model):
-            return False  # Si alguna oración es falsa, todo el KB es falso
-    return True  # Si todas las oraciones son verdaderas, el KB es verdadero
-
-def pl_true(sentence, model):
-    # Elimina espacios para simplificar
-    sentence = sentence.replace(")", "").replace("(", "").replace(" ","")
-
-    # Caso para la negación (¬)
-    if sentence.startswith("¬"):
-        return not pl_true(sentence[1:], model)
-
-    # Caso para la bicondicional (⇔)
-    if "⇔" in sentence:
-        lhs, rhs = sentence.split("⇔")
-        #print("xxx: ", pl_true(lhs, model))
-        #print("yyy: ", pl_true(rhs, model))
-        return pl_true(lhs, model) == pl_true(rhs, model)
-
-    # Caso para el condicional (⇒)
-    if "⇒" in sentence:
-        lhs, rhs = sentence.split("⇒")
-        return not pl_true(lhs, model) or pl_true(rhs, model)
-
-    # Caso para la disyunción (∨)
-    if "∨" in sentence:
-      if len(sentence.split("∨"))==2:
-        lhs, rhs = sentence.split("∨")
-        #print("esto es lhs: ", lhs)
-        #print("esto es rhs: ", rhs)
-        return pl_true(lhs, model) or pl_true(rhs, model)
-      else:
-        lhs, rhs, ohs = sentence.split("∨")
-        return pl_true(lhs, model) or pl_true(rhs, model) or pl_true(ohs, model)
-
-    # Caso para la conjunción (∧)
-    if "∧" in sentence:
-        lhs, rhs = sentence.split("∧")
-        return pl_true(lhs, model) and pl_true(rhs, model)
-
-    # Si es una proposición atómica, busca en el modelo
-    if sentence in model:
-        return model[sentence]
-
-    # Retorna False si no encuentra la proposición en el modelo
-    return False
-
-# Simulación
-patients = [["S2"],
-            ["S1", "S4"],
-            ["S2", "S3"]]  # Paciente 1: Fiebre y Tos
-
-inferencias = []
-
-for i, patient in enumerate(patients, 1):
-    agent = DiagnosisAgent()
-    agent.perceive_symptoms(patient)
-    alpha = "E1"
-
-    inferencias.append(f'¿KB implica el diagnóstico alpha? para el paciente {i}: , {tt_entails(agent.kb, alpha)}')
-
-for i in inferencias:
-    print(i)
+    # Fase 2: preguntas específicas de carrera
+    print(f"=== Fase 2: Carreras para {area_name} ===")
+    prompts = kb.career_question_prompts.get(area_code)
+    career_answers = ask_questions(prompts)
+    best_career, scores_career = kb.infer_career(career_answers)
+    print(f"Carrera recomendada: {best_career}")
